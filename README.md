@@ -1,0 +1,31 @@
+### Description
+
+Core extension starter for reactive [Spring](https://spring.io) apps.
+
+[![Java CI with Maven](https://github.com/WildDev/spring-starter-core-ext-reactive/actions/workflows/maven.yml/badge.svg)](https://github.com/WildDev/spring-starter-core-ext-reactive/actions/workflows/maven.yml)
+
+### What it carries
+
+* `FutureCalculator`, `PastCalculator` - beans to forward datetime values.
+For example, `futureCalculator.calc(LocalDateTime.now(), "20s")` is equal to `LocalDateTime.now().plusSeconds(20)`
+* `MessageService` - is a customized version of Spring's `MessageSource` with fewer parameters
+* `ReactiveExpiredRecordsCollector` - an accumulative interface for expired data collection
+* `ReactiveQueue`, `ReactiveSlicer`, `ReactiveTask` - interfaces to implement custom queues, slicers and tasks respectively
+* `ReactivePublishingPoller` - polling based abstraction to process large datasets
+* `DefaultDurationConverter` - bean to convert duration values to a different time unit. For example, `durationConverter.convert(new DurationValue(1200, TimeUnit.SECONDS), TimeUnit.MINUTES)` produces the converted value `DurationValue(value=20, timeUnit=MINUTES)`
+* `ArrayUtils` - utils to work with arrays
+
+### Get started
+
+Build requirements:
+* latest JDK and Maven
+
+Also available in Maven central:
+
+```xml
+<dependency>
+    <groupId>fun.wilddev.lib</groupId>
+    <artifactId>spring-starter-core-ext-reactive</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
