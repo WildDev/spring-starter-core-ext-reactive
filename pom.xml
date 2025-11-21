@@ -19,7 +19,7 @@
 	<description>Core extension starter for reactive Spring apps</description>
 
 	<properties>
-		<java.version>20</java.version>
+		<java.version>16</java.version>
 	</properties>
 
     <licenses>
