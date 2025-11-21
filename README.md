@@ -26,7 +26,7 @@ Also available in Maven central:
 <dependency>
     <groupId>fun.wilddev.lib</groupId>
     <artifactId>spring-starter-core-ext-reactive</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0.RELEASE</version>
 </dependency>
 ```
 
