@@ -18,7 +18,7 @@ For example, `futureCalculator.calc(LocalDateTime.now(), "20s")` is equal to `Lo
 ### Get started
 
 Build requirements:
-* latest JDK and Maven
+* JDK v16-22 and Maven v3
 
 Also available in Maven central:
 
