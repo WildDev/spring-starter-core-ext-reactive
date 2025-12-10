@@ -81,7 +81,7 @@ public abstract class ReactivePublishingPoller<T> {
 
         return slicer.slice(size).switchIfEmpty(Mono.fromRunnable(() -> log.debug("No items to process, skipping ...")))
                 .doOnEach(s -> counter.incrementAndGet()).filter(i -> filter == null || filter.test(i))
-                .doOnNext(processor::process).onErrorContinue((err, i) -> log.error("Failed to queue an item", err))
+                .flatMap(i -> processor.process(i).thenReturn(i)).onErrorContinue((err, i) -> log.error("Failed to queue an item", err))
                 .count().doOnSuccess(processed -> callback.onComplete(log, processed, counter.get())).then();
     }
 }

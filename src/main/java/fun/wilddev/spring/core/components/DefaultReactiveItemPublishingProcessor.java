@@ -42,6 +42,7 @@ public class DefaultReactiveItemPublishingProcessor<T> implements ReactiveItemPu
     @Override
     public Mono<Void> process(@NonNull T item) {
         return Mono.just(item).flatMap(makeTaskFunc(preprocessingTask))
-                .doOnNext(queue::push).flatMap(makeTaskFunc(postprocessingTask)).then();
+                .flatMap(i -> queue.push(i).thenReturn(i))
+                .flatMap(makeTaskFunc(postprocessingTask)).then();
     }
 }
